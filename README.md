@@ -1,49 +1,96 @@
-# StockSense
+<div align="center">
+  
+# 📦 StockSense
 
-This workspace contains a Flask + SQLAlchemy backend and a React + TypeScript frontend for the StockSense inventory management prototype.
+**Enterprise Inventory Management System**
 
-## Backend
+A modern, full-stack application for managing inventory, tracking stock movements, and streamlining warehouse operations.
 
-From the workspace root:
+</div>
+
+---
+
+## 🚀 Tech Stack
+
+**Frontend:**
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS (Vanilla CSS structure)
+- Lucide React (Icons)
+
+**Backend:**
+- Python 3
+- Flask
+- SQLAlchemy (ORM)
+- PyJWT (Authentication)
+- SQLite (Local development) / MySQL (Production)
+
+---
+
+## 🛠️ Local Development Setup
+
+To run this project locally, you will need to start both the backend server and the frontend development server.
+
+### 1. Start the Backend API
+
+Open a terminal and navigate to the `backend` folder:
 
 ```powershell
 cd backend
 python -m pip install -r requirements.txt
 python run.py
 ```
+*The backend API will run on `http://localhost:5000`.*
 
-The app will run on `http://localhost:5000`.
+### 2. Start the Frontend UI
 
-Set a MySQL connection string before using the production database:
-
-```powershell
-$env:DATABASE_URL="mysql+pymysql://user:password@host:3306/stocksense"
-```
-
-If no database URL is set, the app falls back to a local SQLite file for safe local development and tests.
-
-## Frontend
+Open a second, separate terminal and navigate to the `frontend` folder:
 
 ```powershell
 cd frontend
 npm install
 npm run dev -- --host 0.0.0.0 --port 5173
 ```
+*The frontend web application will run on `http://localhost:5173`.*
 
-The web UI will run at `http://localhost:5173`.
+---
 
-## Default Credentials
+## 🔐 Default Login Credentials
 
-When you run the backend for the first time, it automatically seeds the database with two default user accounts:
+When you run the backend for the first time, it automatically creates the necessary database tables and seeds them with default user accounts. 
 
-- **Demo Manager:** `manager@example.com` / `password123`
-- **Admin User:** `ssksanjeevakumar198@gmail.com` / `password123`
+You can log in to the web interface using either of these accounts:
 
-## Verification
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin/Owner** | `ssksanjeevakumar198@gmail.com` | `password123` |
+| **Demo Manager** | `manager@example.com` | `password123` |
+
+---
+
+## 🧪 Running Tests & Verification
+
+If you want to verify the backend logic or build the frontend for production:
 
 ```powershell
+# Run backend tests
 cd backend
 python -m pytest backend/tests/test_stock_math.py -q
-cd ../frontend
+
+# Build frontend production bundle
+cd frontend
 npm run build
+```
+
+---
+
+## 💾 Database Configuration (Production)
+
+By default, the app uses a local SQLite file (`stocksense.db`) for easy and safe local development. 
+
+To use a production MySQL database, set the connection string in your environment variables before starting the backend:
+
+```powershell
+$env:DATABASE_URL="mysql+pymysql://user:password@host:3306/stocksense"
 ```
