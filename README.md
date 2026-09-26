@@ -32,6 +32,13 @@ npm run dev -- --host 0.0.0.0 --port 5173
 
 The web UI will run at `http://localhost:5173`.
 
+## Default Credentials
+
+When you run the backend for the first time, it automatically seeds the database with two default user accounts:
+
+- **Demo Manager:** `manager@example.com` / `password123`
+- **Admin User:** `ssksanjeevakumar198@gmail.com` / `password123`
+
 ## Verification
 
 ```powershell
