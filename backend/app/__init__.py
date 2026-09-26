@@ -31,7 +31,17 @@ def create_app() -> Flask:
                 role="manager",
             )
             session.add(demo)
-            session.commit()
+            
+        if not session.query(User).filter_by(email="ssksanjeevakumar198@gmail.com").first():
+            user2 = User(
+                name="Sanjeevakumar",
+                email="ssksanjeevakumar198@gmail.com",
+                password_hash=hash_password("password123"),
+                role="manager",
+            )
+            session.add(user2)
+            
+        session.commit()
     finally:
         session.close()
 
